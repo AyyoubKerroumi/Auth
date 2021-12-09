@@ -13,9 +13,6 @@ app.use(express.json());
 
 // routes
 app.use('/api',userRoutes);
-app.get('/',(req, res) => {
-    res.send("zmlti");
-});
 
 // middelwares
 app.use(notFound)

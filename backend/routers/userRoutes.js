@@ -6,6 +6,6 @@ const router = Router();
 router.post('/login',authUser)
 router.post('/register' , registerUser)
 router.get('/',protect,(req,res) => {
-    res.send("chrb w 9owed")
+    res.send("Bonjour")
 })
 export default router
