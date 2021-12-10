@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import Loader from './Loader'
+import Message from './Message'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { loginUser } from '../actions/userActions'
@@ -8,7 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const userLogin = useSelector(state => state.userLogin)
-  const { userInfo } = userLogin
+  const { userInfo, loading, error } = userLogin
   useEffect(() => {
     if (userInfo) {
       navigate('/')
@@ -24,6 +26,8 @@ const Login = () => {
         <h1 class='l-heading'>
           Account <span class='text-primary'>Login</span>
         </h1>
+        {error && <Message>{error}</Message>}
+        {loading && <Loader />}
         <form onSubmit={onSubmit}>
           <div class='form-group'>
             <label for='email'>email</label>
